@@ -28,12 +28,12 @@ export default function BudgetDetailScreen() {
   const { id } = useLocalSearchParams();
   const budgetId = Number(id);
 
-  const [budget, setBudget] = useState(undefined); // undefined = carregando, null = não existe
+  const [budget, setBudget] = useState(undefined); 
   const [expenses, setExpenses] = useState([]);
   const [settings, setSettings] = useState({ iofPercent: 3.5, includeIof: true });
   const [notice, setNotice] = useState('');
 
-  // Formulário de gasto (modal). editing = null significa "novo gasto".
+  
   const [modalVisible, setModalVisible] = useState(false);
   const [editing, setEditing] = useState(null);
   const [description, setDescription] = useState('');
@@ -109,7 +109,7 @@ export default function BudgetDetailScreen() {
         if (result.offline) offlineNote = `Gasto calculado com a ${offlineMessage(result.fetchedAt).toLowerCase()}`;
       }
 
-      // Mantém o IOF original do gasto ao editar; senão usa o configurado.
+      
       const iofPercent = includeIof ? (editing?.iof_percent || settings.iofPercent) : 0;
       const data = {
         budgetId,
